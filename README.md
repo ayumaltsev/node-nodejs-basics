@@ -1,2 +1,2 @@
 # node-nodejs-basics
-Solutions of tasks from nodejs-basics
+Checkout to 'solutions' branch to verify code 
