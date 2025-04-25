@@ -1,18 +1,18 @@
 import path from 'path';
 import {release, version} from 'os';
 import {createServer as createServerHttp} from 'http';
-import {fileURLToPath} from 'url';
+import {fileURLToPath, pathToFileURL} from 'url';
 import * as fileC from './files/c.cjs';
 
 const random = Math.random();
 
 let unknownObject;
 
-// if (random > 0.5) {
-//     unknownObject = await import('./files/a.json', {assert: {type: 'json'}});
-// } else {
-//     unknownObject = await import('./files/b.json', {assert: {type: 'json'}});
-// }
+if (random > 0.5) {
+    unknownObject = await import(pathToFileURL('./files/a.json').href, {with: {type: "json"}});
+} else {
+    unknownObject = await import(pathToFileURL('./files/b.json').href, {with: {type: "json"}});
+}
 
 console.log(`Release ${release()}`);
 console.log(`Version ${version()}`);
